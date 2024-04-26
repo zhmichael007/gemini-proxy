@@ -14,19 +14,19 @@ if [ ! $REGION ]; then
     exit 1
 fi
 
-gcloud run services delete litellm-proxy-001 --project=${PROJECT_ID} --region=${REGION} --quiet
+gcloud run services delete gemini-proxy-001 --project=${PROJECT_ID} --region=${REGION} --quiet
 
-gcloud secrets delete litellm-config --project=${PROJECT_ID} --quiet
+gcloud secrets delete gemini-proxy-config --project=${PROJECT_ID} --quiet
 
 gcloud projects remove-iam-policy-binding ${PROJECT_ID} \
-    --member=serviceAccount:litellmsa@${PROJECT_ID}.iam.gserviceaccount.com \
+    --member=serviceAccount:gemini-proxy@${PROJECT_ID}.iam.gserviceaccount.com \
     --role='roles/aiplatform.user' \
     --condition=None > /dev/null
 
 gcloud projects remove-iam-policy-binding ${PROJECT_ID} \
-    --member=serviceAccount:litellmsa@${PROJECT_ID}.iam.gserviceaccount.com \
+    --member=serviceAccount:gemini-proxy@${PROJECT_ID}.iam.gserviceaccount.com \
     --role='roles/secretmanager.secretAccessor' \
     --condition=None > /dev/null
 
-gcloud iam service-accounts delete litellmsa@${PROJECT_ID}.iam.gserviceaccount.com \
+gcloud iam service-accounts delete gemini-proxy@${PROJECT_ID}.iam.gserviceaccount.com \
     --project=${PROJECT_ID} --quiet > /dev/null
