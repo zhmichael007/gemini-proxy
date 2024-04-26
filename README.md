@@ -7,6 +7,9 @@ This repo helps to deploy Vertex AI Gemini proxy on Google Cloud Run with one st
 - Build a unified Gemini Proxy platform. Various applications can be directly connected using API Key. There is no need to integrate Service Account. 
 - Various open source projects already support OpenAI, but do not support the Vertex Gemini model. With this, they will be compatible with all without major modifications.
 
+## Open Cloud Shell
+<img width="373" alt="image" src="https://github.com/zhmichael007/gemini-proxy/assets/19321027/f1458da5-158f-4dcd-a4ea-4df402f048b7">
+
 ## Git clone the code from Github
 ```
 git clone https://github.com/zhmichael007/gemini-proxy.git
