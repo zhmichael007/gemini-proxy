@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export PROJECT_ID=zhmichael-demo
-export REGION=us-central1
-export IMAGE=us-central1-docker.pkg.dev/zhmichael-demo/gemini-proxy/gemini-proxy:v8
+# export PROJECT_ID=zhmichael-demo
+# export REGION=us-central1
+# export IMAGE=us-central1-docker.pkg.dev/zhmichael-demo/gemini-proxy/gemini-proxy:v8
 
 if [ ! $PROJECT_ID ]; then
     echo "please set PROJECT_ID"
@@ -11,6 +11,11 @@ fi
 
 if [ ! $REGION ]; then
     echo "please set REGION"
+    exit 1
+fi
+
+if [ ! $IMAGE ]; then
+    echo "please set IMAGE"
     exit 1
 fi
 
