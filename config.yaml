@@ -1,0 +1,5 @@
+gemini_proxy_settings:
+  vertex_project: "zhmichael-demo"
+  vertex_location: "us-central1"
+  temperature: 0.5
+  master_key: "sk-1234"
