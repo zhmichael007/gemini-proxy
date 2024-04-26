@@ -42,9 +42,11 @@ docker images
 ```
 push the docker image to AR
 ```
-gcloud auth configure-docker ${REGION}-docker.pkg.dev
+sudo gcloud auth configure-docker ${REGION}-docker.pkg.dev
 sudo docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-proxy/gemini-proxy:v1
 ```
+<img width="882" alt="image" src="https://github.com/zhmichael007/gemini-proxy/assets/19321027/cdcecc6f-28a1-4cf4-ad71-efb706602c02">
+
 ## Deploy Gemini proxy on CloudRun
 ```
 export IMAGE=${REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-proxy/gemini-proxy:v1
