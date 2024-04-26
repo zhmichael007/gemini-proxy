@@ -25,26 +25,27 @@ export PROJECT_ID=your_project_id
 export REGION=region_name
 gcloud config set project $PROJECT_ID
 ```
-create repo
+create repo:
 ```
 gcloud artifacts repositories create gemini-proxy \
    --repository-format=docker \
    --location=${REGION} \
    --description="Docker repository"
 ```
-build the docker image
+build the docker image:
 ```
 sudo docker build -t ${REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-proxy/gemini-proxy:v1 .
 ```
-verify if the image is built
+verify if the image is built:
 ```
 docker images
 ```
-push the docker image to AR
+push the docker image to AR:
 ```
 sudo gcloud auth configure-docker ${REGION}-docker.pkg.dev
 sudo docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-proxy/gemini-proxy:v1
 ```
+verify if the image is pushed to AR:
 <img width="882" alt="image" src="https://github.com/zhmichael007/gemini-proxy/assets/19321027/cdcecc6f-28a1-4cf4-ad71-efb706602c02">
 
 ## Deploy Gemini proxy on CloudRun
@@ -52,12 +53,13 @@ sudo docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-proxy/gemini-prox
 export IMAGE=${REGION}-docker.pkg.dev/${PROJECT_ID}/gemini-proxy/gemini-proxy:v1
 bash deploy.sh
 ```
-wait until the deploy finished.
+wait until the deploy finished:
+<img width="983" alt="image" src="https://github.com/zhmichael007/gemini-proxy/assets/19321027/2d149217-d40b-4ed0-9c2c-a802349d8669">
 
 ## Test
 - use curl to test
 ```
-curl --location 'https://gemini-proxy-001-c2574amhxa-uc.a.run.app/prompt' \
+curl --location 'https://gemini-proxy-001-c2574amhxa-df.a.run.app/prompt' \
 --header 'Authorization: Bearer sk-1234' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -65,6 +67,8 @@ curl --location 'https://gemini-proxy-001-c2574amhxa-uc.a.run.app/prompt' \
       "prompt": "How are you Gemini."
     }'
 ```
+Result Sample:
+<img width="727" alt="image" src="https://github.com/zhmichael007/gemini-proxy/assets/19321027/541f582a-fba9-4605-92e6-112e60627784">
 
 ## Update your config.yaml file
 1. Upload your new config.yaml to a new secret version
