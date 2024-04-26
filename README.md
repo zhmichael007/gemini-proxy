@@ -67,7 +67,9 @@ curl --location 'https://gemini-proxy-001-c2574amhxa-df.a.run.app/prompt' \
       "prompt": "How are you Gemini."
     }'
 ```
+
 Result Sample:
+
 <img width="727" alt="image" src="https://github.com/zhmichael007/gemini-proxy/assets/19321027/541f582a-fba9-4605-92e6-112e60627784">
 
 ## Update your config.yaml file
