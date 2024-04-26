@@ -86,6 +86,7 @@ gcloud run services update gemini-proxy-001 \
     --project=${PROJECT_ID} \
     --set-secrets=/config/config.yaml=gemini-proxy-config:latest
 ```
+After update, the endpoint of cloud run keeps the same. 
 
 ## Clean
 ```
