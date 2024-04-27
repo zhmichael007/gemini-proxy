@@ -67,7 +67,7 @@ curl --location 'https://gemini-proxy-001-c2574amhxa-df.a.run.app/prompt' \
 --header 'Content-Type: application/json' \
 --data '{
       "model": "gemini-1.0-pro-001",
-      "prompt": "How are you Gemini."
+      "prompt": "Who are you?"
     }'
 ```
 
